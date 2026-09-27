@@ -477,8 +477,8 @@ unsigned int PrintIpPacket(unsigned char* buffer,int len){
    fprintf(stdout,MAGENTA("TTL:") "%d\n",iphdr->ttl);
    fprintf(stdout,MAGENTA("PROTOCOL:") "%s\n",GET_IP_PROTO(iphdr->protocol));
    fprintf(stdout,MAGENTA("CHECKSUM:") "%d\n",ntohs(iphdr->check));
-   fprintf(stdout,MAGENTA("SOURCE:") "%s",inet_ntoa(source.sin_addr));
-   fprintf(stdout,MAGENTA("DEST:") "%s",inet_ntoa(dest.sin_addr));
+   fprintf(stdout,MAGENTA("SOURCE:") "%s\n",inet_ntoa(source.sin_addr));
+   fprintf(stdout,MAGENTA("DEST:") "%s\n",inet_ntoa(dest.sin_addr));
    return (unsigned int)iphdr->protocol;
 }
 
