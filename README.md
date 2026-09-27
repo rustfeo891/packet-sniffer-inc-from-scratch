@@ -13,11 +13,11 @@ when using the applicatiuon you need to use sudo because of security reason
 
 <ol>
   <li>run make or compile.sh file</li>
-  <li>./sniffer <network interface></li>
+  <li>./sniffer (network interface)</li>
 </ol> 
 
-example network interface arguments: <br>
+example (network interface) arguments: <br>
 
-lo
+lo <br>
 eth0
 
