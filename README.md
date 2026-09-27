@@ -1,5 +1,5 @@
 # packet sniffer in c from scratch
-packet sniffer in c from scratchj without any third party dependency
+packet sniffer in c from scratch without any third party dependency
 
 Example use case <br>
 <img src="img/showcase.png">
