@@ -16,7 +16,7 @@ when using the applicatiuon you need to use sudo because of security reason
   <li>./sniffer <network interface></li>
 </ol> 
 
-example <network interface arguments>: <br>
+example network interface arguments: <br>
 
 lo
 eth0
