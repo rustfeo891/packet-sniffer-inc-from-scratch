@@ -483,6 +483,128 @@ unsigned int PrintIpPacket(unsigned char* buffer,int len){
 }
 
 
+//https://github.com/torvalds/linux/blob/master/include/uapi/linux/if_ether.h
+
+const char *GET_ETH_PROTO(unsigned int proto)
+{
+    switch (proto) {
+    case ETH_P_LOOP:       return "Ethernet Loopback packet";
+    case ETH_P_PUP:        return "Xerox PUP packet";
+    case ETH_P_PUPAT:      return "Xerox PUP Addr Trans packet";
+    case ETH_P_TSN:        return "TSN (IEEE 1722) packet";
+    case ETH_P_ERSPAN2:    return "ERSPAN version 2 (type III)";
+    case ETH_P_IP:         return "Internet Protocol packet";
+    case ETH_P_X25:        return "CCITT X.25";
+    case ETH_P_ARP:        return "Address Resolution Protocol";
+    case ETH_P_BPQ:        return "G8BPQ AX.25 Ethernet Packet";
+    case ETH_P_IEEEPUP:    return "Xerox IEEE 802.3 PUP packet";
+    case ETH_P_IEEEPUPAT:  return "Xerox IEEE 802.3 PUP Addr Trans packet";
+    case ETH_P_BATMAN:     return "B.A.T.M.A.N.-Advanced packet";
+
+    case ETH_P_DEC:        return "DEC Assigned protocol";
+    case ETH_P_DNA_DL:     return "DEC DNA Dump/Load";
+    case ETH_P_DNA_RC:     return "DEC DNA Remote Console";
+    case ETH_P_DNA_RT:     return "DEC DNA Routing";
+    case ETH_P_LAT:        return "DEC LAT";
+    case ETH_P_DIAG:       return "DEC Diagnostics";
+    case ETH_P_CUST:       return "DEC Customer use";
+    case ETH_P_SCA:        return "DEC Systems Communication Architecture";
+
+    case ETH_P_TEB:        return "Transparent Ethernet Bridging";
+    case ETH_P_RARP:       return "Reverse Address Resolution Protocol";
+    case ETH_P_ATALK:      return "AppleTalk DDP";
+    case ETH_P_AARP:       return "AppleTalk AARP";
+    case ETH_P_8021Q:      return "IEEE 802.1Q VLAN";
+    case ETH_P_ERSPAN:     return "ERSPAN type II";
+    case ETH_P_IPX:        return "IPX over DIX";
+    case ETH_P_IPV6:       return "IPv6";
+    case ETH_P_PAUSE:      return "IEEE 802.3 Pause frame";
+    case ETH_P_SLOW:       return "IEEE 802.3ad Slow Protocol";
+    case ETH_P_WCCP:       return "Web Cache Coordination Protocol";
+    case ETH_P_MPLS_UC:    return "MPLS Unicast";
+    case ETH_P_MPLS_MC:    return "MPLS Multicast";
+    case ETH_P_ATMMPOA:    return "Multiprotocol over ATM";
+    case ETH_P_PPP_DISC:   return "PPPoE Discovery";
+    case ETH_P_PPP_SES:    return "PPPoE Session";
+    case ETH_P_LINK_CTL:   return "HPNA/WLAN Link Local Tunnel";
+    case ETH_P_8021AC:     return "IEEE 802.1AC";
+    case ETH_P_ATMFATE:    return "Frame-based ATM Transport over Ethernet";
+
+    case ETH_P_PAE:        return "IEEE 802.1X Port Access Entity";
+    case ETH_P_PROFINET:   return "PROFINET";
+    case ETH_P_REALTEK:    return "Realtek proprietary protocol";
+    case ETH_P_AOE:        return "ATA over Ethernet";
+    case ETH_P_ETHERCAT:   return "EtherCAT";
+    case ETH_P_8021AD:     return "IEEE 802.1ad Service VLAN";
+    case ETH_P_802_EX1:    return "IEEE 802 Local Experimental 1";
+    case ETH_P_MXLGSW:     return "MaxLinear GSW DSA";
+    case ETH_P_PREAUTH:    return "802.11 Preauthentication";
+    case ETH_P_TIPC:       return "TIPC";
+    case ETH_P_LLDP:       return "Link Layer Discovery Protocol";
+    case ETH_P_MRP:        return "Media Redundancy Protocol";
+    case ETH_P_MACSEC:     return "IEEE 802.1AE MACsec";
+    case ETH_P_8021AH:     return "IEEE 802.1ah Backbone Service Tag";
+    case ETH_P_MVRP:       return "IEEE 802.1Q MVRP";
+    case ETH_P_1588:       return "IEEE 1588 Precision Time Protocol";
+    case ETH_P_NCSI:       return "NCSI";
+    case ETH_P_PRP:        return "Parallel Redundancy Protocol";
+    case ETH_P_CFM:        return "Connectivity Fault Management";
+    case ETH_P_FCOE:       return "Fibre Channel over Ethernet";
+    case ETH_P_IBOE:       return "InfiniBand over Ethernet";
+    case ETH_P_TDLS:       return "Tunneled Direct Link Setup";
+    case ETH_P_FIP:        return "FCoE Initialization Protocol";
+    case ETH_P_80221:      return "IEEE 802.21 Media Independent Handover";
+    case ETH_P_HSR:        return "High-availability Seamless Redundancy";
+    case ETH_P_NSH:        return "Network Service Header";
+
+    case ETH_P_LOOPBACK:   return "Ethernet loopback packet";
+    case ETH_P_QINQ1:      return "Deprecated QinQ VLAN";
+    case ETH_P_QINQ2:      return "Deprecated QinQ VLAN";
+    case ETH_P_QINQ3:      return "Deprecated QinQ VLAN";
+    case ETH_P_YT921X:     return "Motorcomm YT921x DSA";
+    case ETH_P_EDSA:       return "Ethertype DSA";
+    case ETH_P_DSA_8021Q:  return "DSA fake VLAN header";
+    case ETH_P_DSA_A5PSW:  return "A5PSW tag value";
+    case ETH_P_IFE:        return "ForCES inter-FE LFB type";
+    case ETH_P_AF_IUCV:    return "IBM AF_IUCV";
+    case ETH_P_NXP_NETC:   return "NXP NETC DSA";
+
+    case ETH_P_802_3:      return "IEEE 802.3 frame";
+    case ETH_P_AX25:       return "AX.25 frame";
+    case ETH_P_ALL:        return "Every packet";
+    case ETH_P_802_2:      return "IEEE 802.2 frame";
+    case ETH_P_SNAP:       return "SNAP frame";
+    case ETH_P_DDCMP:      return "DEC DDCMP";
+    case ETH_P_WAN_PPP:    return "WAN PPP frame";
+    case ETH_P_PPP_MP:     return "PPP Multilink Protocol frame";
+    case ETH_P_LOCALTALK:  return "LocalTalk frame";
+    case ETH_P_CAN:        return "Controller Area Network frame";
+    case ETH_P_CANFD:      return "CAN FD frame";
+    case ETH_P_CANXL:      return "CAN XL frame";
+    case ETH_P_PPPTALK:    return "AppleTalk over PPP";
+    case ETH_P_TR_802_2:   return "Token Ring 802.2 frame";
+    case ETH_P_MOBITEX:    return "Mobitex";
+    case ETH_P_CONTROL:    return "Card-specific control frame";
+    case ETH_P_IRDA:       return "Linux IrDA";
+    case ETH_P_ECONET:     return "Acorn Econet";
+    case ETH_P_HDLC:       return "HDLC";
+    case ETH_P_ARCNET:     return "ARCnet";
+    case ETH_P_DSA:        return "Distributed Switch Architecture";
+    case ETH_P_TRAILER:    return "Trailer switch tagging";
+    case ETH_P_PHONET:     return "Nokia Phonet";
+    case ETH_P_IEEE802154: return "IEEE 802.15.4";
+    case ETH_P_CAIF:       return "ST-Ericsson CAIF";
+    case ETH_P_XDSA:       return "Multiplexed DSA protocol";
+    case ETH_P_MAP:        return "Qualcomm MAP";
+    case ETH_P_MCTP:       return "Management Component Transport Protocol";
+    case ETH_P_GRE_OSI:    return "GRE tunnel / IS-IS over GRE";
+
+    default:
+        return "Unknown protocol";
+    }
+}
+
+//https://github.com/torvalds/linux/blob/master/include/uapi/linux/if_ether.h
 /*
 struct ethhdr {
 	unsigned char	h_dest[ETH_ALEN];	// destination eth addr	
@@ -498,7 +620,7 @@ void PrintPacketInfo(unsigned char* buffer,int size){
       fprintf(stdout,"ETHERNET\n");
       fprintf(stdout,"SOURCE:" GREEN("%.2X:%.2X:%.2X:%.2X:%.2X:%.2X") "\n",ethhdr->h_source[0],ethhdr->h_source[1],ethhdr->h_source[2],ethhdr->h_source[3],ethhdr->h_source[4],ethhdr->h_source[5]);
       fprintf(stdout,"DEST:" GREEN("%.2X:%.2X:%.2X:%.2X:%.2X:%.2X") "\n",ethhdr->h_dest[0],ethhdr->h_dest[1],ethhdr->h_dest[2],ethhdr->h_dest[3],ethhdr->h_dest[4],ethhdr->h_dest[5]);
-      fprintf(stdout,"PROTOCOL:" GREEN("%d") "\n",ethhdr->h_proto);
+      fprintf(stdout,"PROTOCOL:" GREEN("%s") "\n",GET_ETH_PROTO(ethhdr->h_proto));
       //print ip
       if(size>sizeof(struct ethhdr)+sizeof(struct iphdr)){
          unsigned int ip_proto;
